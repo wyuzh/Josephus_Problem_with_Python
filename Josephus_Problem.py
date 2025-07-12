@@ -1,9 +1,12 @@
 # Made by Mike_Zhang
-# https://ultrafish.cn
+# https://ultrafish.io
 
 from queue import Queue
-n = int(input("\nEnter n, the total number of people(integer >1):"))
-m = int(input("Enter m, the number of counts for each step(integer >0):"))
+n = int(input("Step 1: Input n (the total number of people, integer > 1) and press 'Enter' to confirm: "))
+m = int(input("Step 2: Input m (the number of counts for each step, integer > 0) and press 'Enter' to confirm: "))
+
+print("Calculating ...")
+
 position = 1 # mark next eliminated position
 nowposition = 1 # mark now position
 outqueue = Queue() # store the output
@@ -22,9 +25,12 @@ while nqueue.empty() is False: # loop until it is empty
         outqueue.put(nqueue.get())
         nowposition = 1 # back to the front position
 
-print(">>>Below is the Result of inputs[",n,"]people and [",m,"]-counts:",sep="")
+out_list = []
 while not outqueue.empty():
-     print(outqueue.get(), end=' ')# diaplay the output queue
+    out_list.append(outqueue.get())
+
+print(f"Result of {n} people and {m} counts:")
+print(f">>> SAFE Number: {out_list[-1]}")
 
 # Made by Mike_Zhang
-# https://ultrafish.cn
+# https://ultrafish.io
